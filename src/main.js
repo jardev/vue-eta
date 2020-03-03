@@ -29,7 +29,7 @@ Vue.use(IconsPlugin)
 Vue.use(Auth0Plugin, {
   domain,
   clientId,
-  onRedirectCallback: appState => {
+  onRedirectCallback: (appState) => {
     router.push(
       appState && appState.targetUrl
         ? appState.targetUrl
@@ -42,7 +42,7 @@ Vue.config.productionTip = false;
 
 const router = new Router({
   mode: 'history',
-  base: process.env.BASE_URL,
+  //base: process.env.BASE_URL,
   routes: [{
       path: '/',
       name: 'dashboard',
@@ -52,7 +52,7 @@ const router = new Router({
       name: 'help',
       component: Help
     }
-  ] 
+  ]
 })
 
 new Vue({
