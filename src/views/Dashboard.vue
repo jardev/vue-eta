@@ -19,7 +19,7 @@
                     </b-card-body>
                     <b-card-body>
                         <b-list-group>
-                            <b-list-group-item href="#" class="flex-column align-items-start" v-for="eta in etas" v-bind:eta="eta" v-bind:key="eta.id">
+                            <b-list-group-item href="#" class="flex-column align-items-start" v-for="eta in etas_reversed" v-bind:eta="eta" v-bind:key="eta.id">
                                 <div class="d-flex w-100 justify-content-between">
                                     <p class="mb-1">
                                         <img class="rounded-circle" width="24px" height="24px" style="margin-right:5px" :src="eta.user.picture">{{ eta.user.name }}
