@@ -42,7 +42,7 @@ Vue.config.productionTip = false;
 
 const router = new Router({
   mode: 'history',
-  //base: process.env.BASE_URL,
+  base: '/vue-eta/',
   routes: [{
       path: '/',
       name: 'dashboard',
