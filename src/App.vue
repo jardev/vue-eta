@@ -2,7 +2,7 @@
   <div id="app">
     <b-navbar toggleable="sm" type="dark" variant="primary" v-if="!$auth.loading">
       <b-navbar-brand href="#">ETA</b-navbar-brand>
-      
+
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
@@ -10,9 +10,9 @@
           <b-nav-item to="/">Dashboard</b-nav-item>
           <b-nav-item to="/help">Help</b-nav-item>
         </b-navbar-nav>
-        
+
         <b-navbar-nav v-if="!$auth.isAuthenticated" >
-          <b-nav-item href="#/signin">Sign In</b-nav-item>
+          <b-nav-item href="/">Sign In</b-nav-item>
         </b-navbar-nav>
 
         <b-navbar-nav v-if="$auth.isAuthenticated" class="ml-auto">
@@ -25,7 +25,7 @@
       </b-collapse>
     </b-navbar>
     <p></p>
-    
+
     <b-container v-if="!$auth.isAuthenticated">
       <b-row class="justify-content-lg-center">
         <b-col lg="6">
