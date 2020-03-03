@@ -2,7 +2,7 @@
     <b-container>
         <b-row class="justify-content-lg-center">
             <b-col lg="6">
-                <h1>Expectations</h1>        
+                <h1>Expectations</h1>
                 <b-card no-body border-variant="primary" v-bind:header="'Current time is ' + formatDateTime(currentTime)" header-tag="h4">
                     <b-card-body>
                         <div class="d-flex w-100 justify-content-between">
@@ -19,15 +19,15 @@
                     </b-card-body>
                     <b-card-body>
                         <b-list-group>
-                            <b-list-group-item href="#" class="flex-column align-items-start" v-for="(eta, index) in etas_reversed" v-bind:eta="eta" v-bind:key="index">
+                            <b-list-group-item href="#" class="flex-column align-items-start" v-for="eta in etas" v-bind:eta="eta" v-bind:key="eta.id">
                                 <div class="d-flex w-100 justify-content-between">
                                     <p class="mb-1">
                                         <img class="rounded-circle" width="24px" height="24px" style="margin-right:5px" :src="eta.user.picture">{{ eta.user.name }}
                                     </p>
-                                    <small>{{ formatDateTime(eta.created_at) }}</small> 
-                                </div> 
+                                    <small>{{ formatDateTime(eta.created_at) }}</small>
+                                </div>
                                 <h5 class="mb-1">{{ eta.what }} at {{ formatDateTime(eta.when) }}</h5>
-                            </b-list-group-item> 
+                            </b-list-group-item>
                         </b-list-group>
                     </b-card-body>
                 </b-card>
@@ -74,7 +74,9 @@ export default {
                     hour,
                     minute
                 );
-                db.ref().child('etas').push().set({
+                var objRef = db.ref().child('etas').push();
+                objRef.set({
+                    id: objRef.key,
                     what: this.what,
                     when: whenDate.getTime(),
                     created_at: this.currentTime.getTime(),
@@ -101,7 +103,7 @@ export default {
           what: "",
           currentTime: new Date(),
           etas: []
-      }   
+      }
   },
   firebase: function() {
       return {
