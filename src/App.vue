@@ -42,8 +42,9 @@
     <div v-if="$auth.loading" class="d-flex min-vh-100 align-items-center justify-content-center">
         <b-spinner type="grow" label="Loading..."></b-spinner>
     </div>
-
-    <router-view v-if="$auth.isAuthenticated" />
+    <keep-alive>
+        <router-view v-if="$auth.isAuthenticated" />
+    </keep-alive>
   </div>
 </template>
 
