@@ -26,7 +26,7 @@
     </b-navbar>
     <p></p>
 
-    <b-container v-if="!$auth.isAuthenticated">
+    <b-container v-if="!$auth.isAuthenticated && !$auth.loading">
       <b-row class="justify-content-lg-center">
         <b-col lg="6">
           <b-card border-variant="primary" header="Sign In" header-tag="h4">
@@ -38,6 +38,10 @@
         </b-col>
       </b-row>
     </b-container>
+
+    <div v-if="$auth.loading" class="d-flex min-vh-100 align-items-center justify-content-center">
+        <b-spinner type="grow" label="Loading..."></b-spinner>
+    </div>
 
     <router-view v-if="$auth.isAuthenticated" />
   </div>
