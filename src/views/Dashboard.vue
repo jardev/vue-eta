@@ -1,5 +1,5 @@
 <template>
-    <b-container>
+    <b-container class="p-3">
         <b-row class="justify-content-lg-center">
             <b-col lg="6">
                 <h1>Expectations</h1>
