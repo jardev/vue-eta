@@ -24,9 +24,7 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-    <p></p>
-
-    <b-container v-if="!$auth.isAuthenticated && !$auth.loading">
+    <b-container v-if="!$auth.isAuthenticated && !$auth.loading" class="p-3">
       <b-row class="justify-content-lg-center">
         <b-col lg="6">
           <b-card border-variant="primary" header="Sign In" header-tag="h4">
